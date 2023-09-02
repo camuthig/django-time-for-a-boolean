@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "django-time-for-a-boolean"
+version = "0.1.0"
+description = "Use a datetime or date field to enable boolean behaviors"
+authors = ["Chris Muthig <camuthig@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "django_time_for_a_boolean", from = "src" }
+]
+license = "MIT"
+classifiers = [
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = ">=3.2, <5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+pytest = "^7.4.0"
+pytest-django = "^4.5.2"
+pytest-cov = "^4.1.0"
+flake8 = "^6.1.0"
+isort = "^5.12.0"
+coverage = {version = "^7.3.0", extras = ["toml"]}
+nox = "^2023.4.22"
+pre-commit = "^3.3.3"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+
+[tool.black]
+line-length = 128
+
+[tool.coverage.paths]
+source = ["src/django_time_for_a_boolean"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+omit = ["tests/*", "**/migrations/*", "**/__init__.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
