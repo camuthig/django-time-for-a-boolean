@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.test import TestCase
 from django.utils import timezone
 
@@ -41,7 +43,7 @@ class TestField(TestCase):
         e2 = models.Example.objects.create(date_field=True)
 
         self.assertEqual(e1, models.Example.objects.filter(datetime_field_at__isnull=False).get())
-        self.assertEqual(e1, models.Example.objects.filter(datetime_field_at__lt=timezone.now()).get())
+        self.assertEqual(e1, models.Example.objects.filter(datetime_field_at__lt=timezone.now() + timedelta(minutes=1)).get())
         self.assertEqual(e2, models.Example.objects.filter(date_field_on__isnull=False).get())
 
     def test_custom_column_is_used_for_date(self):

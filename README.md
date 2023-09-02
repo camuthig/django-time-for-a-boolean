@@ -29,8 +29,8 @@ m.started = True
 MyModel.objects.filter(deleted=True)  # This will search for non-null values
 MyModel.objects.filter(started=False)  # This will search for null values
 
-# By default, datetime fields will use a `_at` suffix for the database column an date fields will use a `_on` suffix.
-# You can filter using those fields as well.
+# By default, datetime fields will use a `_at` suffix for the database column and
+# date fields will use a `_on` suffix. You can filter using those fields as well.
 
 MyModel.objects.filter(deleted_at__lte=timezone.now())
 ```
