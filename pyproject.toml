@@ -22,7 +22,7 @@ django = ">=3.2, <5.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
-pytest = "^7.4.0"
+pytest = "^8.0.0"
 pytest-django = "^4.5.2"
 pytest-cov = "^4.1.0"
 flake8 = "^6.1.0"
